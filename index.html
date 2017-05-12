@@ -6,14 +6,56 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="app.js"></script>
+    <script type="text/javascript">
+      var interval;
+      var block;
+      function positionRect() {
+        setInterval 
+      }
+
+      function startGame() {
+        positionRect()
+      }
+
+      function start(){
+        block = document.getElementById("block")
+        startGame();
+      }
+    </script>
     <style>
-        div.
+        #game {
+          width: 400px;
+          height: 400px;
+          border: solid black 1px;
+          cursor: crosshair;
+        }
+
+        #settings {
+          border: solid black 1px;
+          margin: 20px;
+        }
+        #main {
+          width: 400px;
+          margin: 0 auto;
+        }
+        #block {
+          background-color: black;
+          width: 10px;
+          height: 10px;
+        }
     </style>
   </head>
-  <body>
+  <body onload="start();">
+    <div id="main">
       <h1>reaktions-rochle</h1>
-    <div>
-    
+      <div id="game">
+        <div id="block"></div>
+      </div>
+      <div id="settings">
+        <p>Zeit: <span id="time">0s</span></p>
+        <p>Punkte: <span id="points">0</span></p>
+      </div>
     </div>
   </body>
 </html>
