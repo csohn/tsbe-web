@@ -1,0 +1,7 @@
+WEB Projekt - Reaktionsspiel
+Teilnehmer: Dave, Chrigu
+
+Idee: Es gibt ein Spielfeld in dem Buttons an zufälligen Stellen erscheinen, die schnellstmöglich weggeklickt werden müssen. Der Spielablauf ist wie folgt:
+1.	Am Anfang wird ein Name eingegeben.
+2.	Während einer definierten Zeit (10s) müssen nun Felder angeklickt werden.
+3.	Die Anzahl Elemente werden dann mit dem Namen in einer Rangliste dargestellt.
