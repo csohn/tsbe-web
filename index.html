@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>reaktions-rochle</title>
+	<body background="background.jpg">
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -109,6 +110,7 @@
         #settings {
           border: solid black 1px;
           margin: 20px;
+		  padding: 10px;
         }
         #main {
           width: 400px;
@@ -124,7 +126,7 @@
   </head>
   <body>
     <div id="main">
-      <h1>reaktions-rochle</h1>
+      <h1>Reaktions-Rochle</h1>
       <div id="game">
         <div id="block"></div>
       </div>
@@ -132,7 +134,7 @@
         <p>Zeit: <span id="time">0s</span></p>
         <p>Punkte: <span id="points">0</span></p>
 		<p>Name: <input type="text" name="Name" id="name_id"></p>
-		<p><button onclick="start();">Start</button></p>
+		<p><button onclick="start();" class="btn btn-primary">Start</button></p>
 		<hr>
 		<h3>Highscore</h3>
 		<div id="highscore_id"></div>
