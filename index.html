@@ -16,6 +16,14 @@
 	  var name;
 	  var highscore = [];
 
+	  function startButton() {
+		document.body.onkeyup = function(e){
+			if(e.keyCode == 13){
+				start();
+			}
+		}
+	  }
+	  
       function positionBlock() {
 	    field = document.getElementById("game")
 	    block = document.getElementById("block")
@@ -23,7 +31,6 @@
 		new_h = Math.floor(Math.random() * ( field.offsetHeight - block.offsetWidth ) + 1)
 		block.style.left = new_w + "px"
 		block.style.top = new_h + "px"
-	  
       }
 
 	  function hitBlock() {
@@ -32,7 +39,7 @@
 		positionBlock();
 	}
 
-	function end(){
+	function end() {
         block = document.getElementById("block");
 	    document.getElementById("game").style.backgroundColor = "lightgrey";
 		block.onclick = "";
@@ -65,7 +72,7 @@
 		highscore.sort(compareByPoint);
 		for(i in highscore){
 			li=document.createElement("li");
-			li.innerHTML = "Name: " + highscore[i].name + ", Points: " + highscore[i].points + ", Date: " + highscore[i].date;
+			li.innerHTML = "Name: <b>" + highscore[i].name + "</b>, Points: <b>" + highscore[i].points + "</b>, Date: " + highscore[i].date;
 			ol.appendChild(li);
 		}
 		hs_div.appendChild(ol);
@@ -99,16 +106,22 @@
 
     </script>
     <style>
-        #game {
+        #header {
+		  margin: 20px;
+		}
+		
+		#game {
           width: 400px;
           height: 400px;
+		  margin: 20px;
           border: solid black 1px;
           cursor: crosshair;
 		  background-color: lightgrey;
         }
 
         #settings {
-          border: solid black 1px;
+          width: 400px;
+		  border: solid black 1px;
           margin: 20px;
 		  padding: 10px;
         }
@@ -124,9 +137,9 @@
         }
     </style>
   </head>
-  <body>
+  <body onload="startButton()">
     <div id="main">
-      <h1>Reaktions-Rochle</h1>
+      <div id="header"><h1>Reaktions-Rochle</h1></div>
       <div id="game">
         <div id="block"></div>
       </div>
