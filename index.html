@@ -6,22 +6,61 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="app.js"></script>
     <script type="text/javascript">
       var interval;
       var block;
-      function positionRect() {
-        setInterval 
+	  var hitCounter = 0;
+	  var default_time = 10;
+	  var time = 0;
+
+      function positionBlock() {
+	    field = document.getElementById("game")
+	    block = document.getElementById("block")
+		new_w = Math.floor(Math.random() * ( field.offsetWidth - block.offsetWidth ) + 1)
+		new_h = Math.floor(Math.random() * ( field.offsetHeight - block.offsetWidth ) + 1)
+		block.style.left = new_w + "px"
+		block.style.top = new_h + "px"
+	  
       }
 
-      function startGame() {
-        positionRect()
-      }
+	  function hitBlock() {
+	  	hitCounter++;
+		document.getElementById("points").innerHTML = hitCounter
+		positionBlock();
+	}
+
+	function end(){
+        block = document.getElementById("block");
+		block.onclick = "";
+		clearInterval(interval);
+
+
+	}
+
+	function countdown(){
+		time_div = document.getElementById("time")
+		time--;
+		time_div.innerHTML = time + "s"
+
+		if ( time <= 0 ){
+			end();
+		}
+
+	}
 
       function start(){
-        block = document.getElementById("block")
-        startGame();
+        block = document.getElementById("block");
+		document.getElementById("points").innerHTML = 0;
+		time_div = document.getElementById("time")
+		time = default_time;
+		time_div.innerHTML = time + "s"
+		block.onclick = hitBlock
+        positionBlock();
+		hitCounter = 0;
+        block.style.display = "";
+		interval = setInterval(countdown, 1000);
       }
+
     </script>
     <style>
         #game {
@@ -43,10 +82,11 @@
           background-color: black;
           width: 10px;
           height: 10px;
+		  position: relative;
         }
     </style>
   </head>
-  <body onload="start();">
+  <body>
     <div id="main">
       <h1>reaktions-rochle</h1>
       <div id="game">
@@ -55,6 +95,7 @@
       <div id="settings">
         <p>Zeit: <span id="time">0s</span></p>
         <p>Punkte: <span id="points">0</span></p>
+		<button onclick="start();">Start</button>
       </div>
     </div>
   </body>
