@@ -127,6 +127,12 @@
           margin: 20px;
 		  padding: 10px;
         }
+        #vue {
+          width: 400px;
+		  border: solid black 1px;
+          margin: 20px;
+		  padding: 10px;
+        }
         #main {
           width: 400px;
           margin: 0 auto;
@@ -156,7 +162,7 @@
       </div>
 	  <div id="vue">
 		<h3>{{ message }}</h3>
-		<table>
+		<table style="width: 100%;">
 			<tr>
 				<th>Name</th>
 				<th>Punkte</th>
@@ -175,7 +181,7 @@
     new Vue({
       el: '#vue',
       data: {
-        message: 'Hello Vue.js!',
+        message: 'Highscore Vue',
 		highscore: highscore
       }
     })
