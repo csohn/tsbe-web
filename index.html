@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>reaktions-rochle</title>
 	<body background="background.jpg">
+	<script src="https://unpkg.com/vue"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -104,6 +105,7 @@
 		interval = setInterval(countdown, 1000);
       }
 
+
     </script>
     <style>
         #header {
@@ -152,6 +154,33 @@
 		<h3>Highscore</h3>
 		<div id="highscore_id"></div>
       </div>
+	  <div id="vue">
+		<h3>{{ message }}</h3>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Punkte</th>
+				<th>Zeit</th>
+			</tr>
+			<tr v-for="entry in highscore">
+				<td>{{ entry.name }}</td>
+				<td>{{ entry.points }}</td>
+				<td>{{ entry.date }}</td>
+			</tr>
+		</table>
+	  </div>
     </div>
+  <script>
+
+    new Vue({
+      el: '#vue',
+      data: {
+        message: 'Hello Vue.js!',
+		highscore: highscore
+      }
+    })
+  </script>
+
+
   </body>
 </html>
